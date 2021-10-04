@@ -57,32 +57,59 @@ Explicit types in TS
     - union types: can be multiple types in the future
 -------------------------
 */
-var character;
-var age;
-var isLoggedIn;
-// age = "error";
-age = 222;
+// let character: string;
+// let age: number;
+// let isLoggedIn: false;
+// // age = "error";
+// age = 222;
+// console.log(age);
+// // let stringArr: string[];
+// let stringArr: string[] = [];
+// stringArr.push("hi");
+// console.log(stringArr);
+// // union types
+// let mixed: (string | number | boolean)[] = [];
+// mixed.push("hello");
+// mixed.push(54344354);
+// mixed.push(true);
+// console.log(mixed);
+// let uid: string | boolean;
+// uid = "stringy";
+// uid = false;
+// console.log(uid);
+// let ninjaOne: object;
+// let ninjaTwo: { name: string; belt: string; isLoggedIn: boolean };
+// ninjaOne = [];
+// console.log(ninjaOne);
+// ninjaTwo = {
+//   name: "ninja2",
+//   belt: "orange",
+//   isLoggedIn: false,
+// };
+/*
+-------------------------
+Dynamic types in TS
+
+    - when it might change in the future: any
+    - reverts TS back to JS: less helpful :(
+    - use any for objects, arrays
+-------------------------
+*/
+var age = 25;
 console.log(age);
-// let stringArr: string[];
-var stringArr = [];
-stringArr.push("hi");
-console.log(stringArr);
-// union types
+age = true;
+console.log(age);
+age = "hi";
+console.log(age);
+age = { age: 30 };
+console.log(age);
 var mixed = [];
-mixed.push("hello");
-mixed.push(54344354);
-mixed.push(true);
+mixed.push(5);
+mixed.push("hi");
 console.log(mixed);
-var uid;
-uid = "stringy";
-uid = false;
-console.log(uid);
-var ninjaOne;
-var ninjaTwo;
-ninjaOne = [];
-console.log(ninjaOne);
-ninjaTwo = {
-    name: "ninja2",
-    belt: "orange",
-    isLoggedIn: false
+var ninja;
+ninja = {
+    name: "Hi",
+    age: "5"
 };
+console.log(ninja);
