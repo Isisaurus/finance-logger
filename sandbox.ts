@@ -37,28 +37,79 @@ Objects and Arrays in TS
     - can only reassign Object with other Object with the same properties and types
 */
 
-let names = ["luigi", "mario", "yoshi"];
-names.push("toad");
-// names.push(3);
+// let names = ["luigi", "mario", "yoshi"];
+// names.push("toad");
+// // names.push(3);
 
-console.log(names);
+// console.log(names);
 
-let mixedArr = ["ken", 1, "cho-chan", 8, 9];
+// let mixedArr = ["ken", 1, "cho-chan", 8, 9];
 
-mixedArr.push("bye");
-mixedArr.push(5);
-// mixedArr.push(false);
+// mixedArr.push("bye");
+// mixedArr.push(5);
+// // mixedArr.push(false);
 
-console.log(mixedArr);
+// console.log(mixedArr);
 
-let ninja = {
-  name: "mario",
-  belt: "black",
-  age: 30,
+// let ninja = {
+//   name: "mario",
+//   belt: "black",
+//   age: 30,
+// };
+
+// ninja.age = 40;
+// ninja.name = "Zelda";
+// // ninja.age = "30";
+
+// console.log(ninja);
+
+/*
+-------------------------
+Explicit types in TS
+
+    - initialize a variable with only the type
+    - can initialize array types eg.: to use push() later => let stringArr: string[] = []
+    - union types: can be multiple types in the future
+-------------------------
+*/
+
+let character: string;
+let age: number;
+let isLoggedIn: false;
+
+// age = "error";
+age = 222;
+console.log(age);
+
+// let stringArr: string[];
+let stringArr: string[] = [];
+
+stringArr.push("hi");
+
+console.log(stringArr);
+
+// union types
+let mixed: (string | number | boolean)[] = [];
+
+mixed.push("hello");
+mixed.push(54344354);
+mixed.push(true);
+console.log(mixed);
+
+let uid: string | boolean;
+
+uid = "stringy";
+uid = false;
+console.log(uid);
+
+let ninjaOne: object;
+let ninjaTwo: { name: string; belt: string; isLoggedIn: boolean };
+ninjaOne = [];
+
+console.log(ninjaOne);
+
+ninjaTwo = {
+  name: "ninja2",
+  belt: "orange",
+  isLoggedIn: false,
 };
-
-ninja.age = 40;
-ninja.name = "Zelda";
-// ninja.age = "30";
-
-console.log(ninja);
