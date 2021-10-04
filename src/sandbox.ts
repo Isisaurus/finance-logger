@@ -124,26 +124,26 @@ Dynamic types in TS
 -------------------------
 */
 
-let age: any = 25;
-console.log(age);
-age = true;
-console.log(age);
-age = "hi";
-console.log(age);
-age = { age: 30 };
-console.log(age);
+// let age: any = 25;
+// console.log(age);
+// age = true;
+// console.log(age);
+// age = "hi";
+// console.log(age);
+// age = { age: 30 };
+// console.log(age);
 
-let mixed: any[] = [];
-mixed.push(5);
-mixed.push("hi");
+// let mixed: any[] = [];
+// mixed.push(5);
+// mixed.push("hi");
 
-console.log(mixed);
+// console.log(mixed);
 
-let ninja: { name: string; age: any };
+// let ninja: { name: string; age: any };
 
-ninja = {
-  name: "Hi",
-  age: "5",
-};
+// ninja = {
+//   name: "Hi",
+//   age: "5",
+// };
 
-console.log(ninja);
+// console.log(ninja);

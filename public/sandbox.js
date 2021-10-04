@@ -1,3 +1,4 @@
+"use strict";
 var inputs = document.querySelectorAll("input");
 inputs.forEach(function (input) {
     console.log(input);
@@ -95,21 +96,21 @@ Dynamic types in TS
     - use any for objects, arrays
 -------------------------
 */
-var age = 25;
-console.log(age);
-age = true;
-console.log(age);
-age = "hi";
-console.log(age);
-age = { age: 30 };
-console.log(age);
-var mixed = [];
-mixed.push(5);
-mixed.push("hi");
-console.log(mixed);
-var ninja;
-ninja = {
-    name: "Hi",
-    age: "5"
-};
-console.log(ninja);
+// let age: any = 25;
+// console.log(age);
+// age = true;
+// console.log(age);
+// age = "hi";
+// console.log(age);
+// age = { age: 30 };
+// console.log(age);
+// let mixed: any[] = [];
+// mixed.push(5);
+// mixed.push("hi");
+// console.log(mixed);
+// let ninja: { name: string; age: any };
+// ninja = {
+//   name: "Hi",
+//   age: "5",
+// };
+// console.log(ninja);
