@@ -12,11 +12,39 @@ Types in TS
     - can assign type to function parameter
     - TS won't compile if there's an error in type: checks during development
 */
-var age = 30;
-// age = "none";
-var isBlackBelt = false;
-isBlackBelt = true;
-var circ = function (diameter) {
-    return diameter * Math.PI;
+// let age = 30;
+// // age = "none";
+// let isBlackBelt = false;
+// isBlackBelt = true;
+// const circ = (diameter: number) => {
+//   return diameter * Math.PI;
+// };
+// console.log(circ(20));
+/*
+-------------------------
+Objects and Arrays in TS
+-------------------------
+    - Array types are also infered automatically, can only push the same type
+    - can have mixed Arrays, but needs to be mixed when defined
+    - can't change the variable type if it is an Array
+    - can't add extra properties to Object after defined
+    - can only reassign Object with other Object with the same properties and types
+*/
+var names = ["luigi", "mario", "yoshi"];
+names.push("toad");
+// names.push(3);
+console.log(names);
+var mixedArr = ["ken", 1, "cho-chan", 8, 9];
+mixedArr.push("bye");
+mixedArr.push(5);
+// mixedArr.push(false);
+console.log(mixedArr);
+var ninja = {
+    name: "mario",
+    belt: "black",
+    age: 30
 };
-console.log(circ(20));
+ninja.age = 40;
+ninja.name = "Zelda";
+// ninja.age = "30";
+console.log(ninja);
