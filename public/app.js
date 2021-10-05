@@ -24,6 +24,10 @@ Notes:
         - doesn't bundle our code, the browser uses the module system to load the files and makes multiple requests => use webpack to bundle
         - TS modules compiles into JS ES6 module (use Webpack to work with older browser versions)
 
+    Interfaces:
+        - inforces a certain structure for objects and classes
+        - property names need to mach in type and name, mehtod parameters need to match in type only
+
 
 ---------------------------------------------------------------------------------------
 
@@ -62,23 +66,24 @@ const inv2 = new Invoice("luigi", "work on the luigi website", 300);
 let invoices = [];
 invoices.push(inv1);
 invoices.push(inv2);
-invoices.forEach((inv) => {
-    console.log(inv.client, inv.details, inv.format());
-});
-// // SHORTHAND CLASS WITH ACCESS MODIFYERS -------------------------------------------------
-// class InvoicesEg {
-//   constructor(
-//     readonly client: string,
-//     readonly details: string,
-//     private amount: number
-//   ) {
-//     this.client = client;
-//     this.details = details;
-//     this.amount = amount;
-//   }
-//   format() {
-//     return `${this.client} owes $${this.amount} for ${this.details}`;
-//   }
-// }
-// const invEg = new InvoicesEg("diana", "project fee", 100);
-// console.log(invEg.format());
+const me = {
+    name: "Diana",
+    age: 24,
+    birthYear: 1997,
+    location: "Almere",
+    speak: (text) => {
+        console.log(`${text}`);
+    },
+    spend: (amount) => {
+        console.log(`Spent ${amount}`);
+        return amount;
+    },
+};
+let someone;
+console.log(me);
+me.speak(`hello there`);
+me.spend(500);
+const greetPerson = (person) => {
+    console.log(`Hello, ${person.name}`);
+};
+greetPerson(me);
