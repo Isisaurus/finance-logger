@@ -164,27 +164,27 @@ Functions in TS
 -------------------------
 */
 
-let greet: Function;
+// let greet: Function;
 
-greet = () => {
-  console.log("hello again!");
-};
+// greet = () => {
+//   console.log("hello again!");
+// };
 
-const add = (a: number, b: number, c?: number | string) => {
-  console.log(a + b);
-  console.log(c);
-};
+// const add = (a: number, b: number, c?: number | string) => {
+//   console.log(a + b);
+//   console.log(c);
+// };
 
-// add("5,1);
-// add(5);
-add(5, 10);
-add(5, 1, "hi");
+// // add("5,1);
+// // add(5);
+// add(5, 10);
+// add(5, 1, "hi");
 
-const minus = (a: number, b: number) => {
-  return a + b;
-};
+// const minus = (a: number, b: number) => {
+//   return a + b;
+// };
 
-let result = minus(5, 3);
+// let result = minus(5, 3);
 /*
   the result variable's type is infered by TS
 */
@@ -193,6 +193,13 @@ let result = minus(5, 3);
 -------------------------
 Type Aliases in TS
 
-    -
+    - type specifications can get complex therefore long, or want to avoid using the same type specs in a different scenario => use type aliases
 -------------------------
 */
+
+type StringOrNum = string | number;
+type objWithName = { name: string; uid: StringOrNum };
+
+const logDetails = (user: objWithName) => {
+  console.log(`${user.name} has a uid of ${user.uid}`);
+};
