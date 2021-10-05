@@ -1,3 +1,5 @@
+import { Invoice } from "./modules/Invoice.js";
+
 /*
 ---------------------------------------------------------------------------------------
 
@@ -19,7 +21,10 @@ Notes:
 
     Modules: 
         - TS uses ES6 modules
+        - only supported in modern browsers
+        - doesn't bundle our code, the browser uses the module system to load the files and makes multiple requests => use webpack to bundle
         - TS modules compiles into JS ES6 module (use Webpack to work with older browser versions)
+
 
 ---------------------------------------------------------------------------------------
 
@@ -29,21 +34,22 @@ Notes:
 // console.log(anchor.href);
 
 // classes
-class Invoice {
-  readonly client: string;
-  details: string;
-  private amount: number;
+// refractored into invoice.ts
+// class Invoice {
+//   readonly client: string;
+//   details: string;
+//   private amount: number;
 
-  constructor(c: string, d: string, a: number) {
-    this.client = c;
-    this.details = d;
-    this.amount = a;
-  }
+//   constructor(c: string, d: string, a: number) {
+//     this.client = c;
+//     this.details = d;
+//     this.amount = a;
+//   }
 
-  format() {
-    return `${this.client} owes $${this.amount} for ${this.details}`;
-  }
-}
+//   format() {
+//     return `${this.client} owes $${this.amount} for ${this.details}`;
+//   }
+// }
 
 // from
 const form = document.querySelector(".new-item-from") as HTMLFormElement;
