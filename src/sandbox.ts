@@ -197,9 +197,54 @@ Type Aliases in TS
 -------------------------
 */
 
-type StringOrNum = string | number;
-type objWithName = { name: string; uid: StringOrNum };
+// type StringOrNum = string | number;
+// type objWithName = { name: string; uid: StringOrNum };
 
-const logDetails = (user: objWithName) => {
-  console.log(`${user.name} has a uid of ${user.uid}`);
+// const logDetails = (user: objWithName) => {
+//   console.log(`${user.name} has a uid of ${user.uid}`);
+// };
+
+/*
+-------------------------
+Function Signitures in TS
+
+    - describes the general structure of a function: arguments and returned values
+    - the signiture parameter names don't have to match the new function created from it
+    - the f created needs to exactly match the function parameter and returned value types
+-------------------------
+*/
+
+let greet: Function;
+
+// example 1
+
+let greet1: (a: string, b: string) => void;
+
+greet1 = (name: string, greeting: string) => {
+  console.log(`${name} says ${greeting}`);
 };
+
+//  example 2
+
+let calc: (a: number, b: number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string) => {
+  if (action === "add") {
+    return numOne + numTwo;
+  } else {
+    return numOne - numTwo;
+  }
+
+  // return type is infered
+  // have to return infered type
+};
+
+//  example 3
+
+let logDetails: (obj: { name: string; age: number }) => void;
+type person = { name: string; age: number };
+
+logDetails = (ninja: person) => {
+  console.log(`${ninja.name} is ${ninja.age} years old`);
+};
+
+logDetails({ name: "Shaun", age: 30 });
