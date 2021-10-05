@@ -16,7 +16,7 @@ Notes:
         - can define a class with a constructor with defined parameter types
         - can define an array type of the class ;)
         - can edit object properties created from class, but can't change type
-        - can use access modifyers to limit access to these object properties
+        - can use *access modifyers* to limit access to these object properties: it actually works in TS, use the: public, private, readonly kws
 
 
 ---------------------------------------------------------------------------------------
@@ -53,4 +53,23 @@ var inv2 = new Invoice("luigi", "work on the luigi website", 300);
 var invoices = [];
 invoices.push(inv1);
 invoices.push(inv2);
-console.log(invoices);
+invoices.forEach(function (inv) {
+    console.log(inv.client, inv.details, inv.format());
+});
+// SHORTHAND CLASS WITH ACCESS MODIFYERS
+var InvoicesEg = /** @class */ (function () {
+    function InvoicesEg(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
+    }
+    InvoicesEg.prototype.format = function () {
+        return this.client + " owes $" + this.amount + " for " + this.details;
+    };
+    return InvoicesEg;
+}());
+var invEg = new InvoicesEg("diana", "project fee", 100);
+console.log(invEg.format());
