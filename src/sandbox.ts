@@ -147,3 +147,52 @@ Dynamic types in TS
 // };
 
 // console.log(ninja);
+
+/*
+-------------------------
+Functions in TS
+
+    - the Function type kw uses capital
+    - can define parameter types (also with mixed types)
+    - can define optional parameter (c?: number | string)
+    - can define default parameter OR define optional parameter NOT BOTH - SO (c?: number | string \or\ c: number | string = 5)
+    - returned value types affect the explicitly declared vaiable's type and can not be changed later
+    - can define returned type, but it is refered automatically (useful by big functions)
+    - console.log returns as void (represents a complete lack of returned value)
+    - void is a lack of value, not equal to undefined! BUT compiles into undefined in JS
+    
+-------------------------
+*/
+
+let greet: Function;
+
+greet = () => {
+  console.log("hello again!");
+};
+
+const add = (a: number, b: number, c?: number | string) => {
+  console.log(a + b);
+  console.log(c);
+};
+
+// add("5,1);
+// add(5);
+add(5, 10);
+add(5, 1, "hi");
+
+const minus = (a: number, b: number) => {
+  return a + b;
+};
+
+let result = minus(5, 3);
+/*
+  the result variable's type is infered by TS
+*/
+// result = "10";
+/*
+-------------------------
+Type Aliases in TS
+
+    -
+-------------------------
+*/
