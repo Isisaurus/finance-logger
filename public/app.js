@@ -18,6 +18,9 @@ Notes:
         - can edit object properties created from class, but can't change type
         - can use *access modifyers* to limit access to these object properties: it actually works in TS, use the: public, private, readonly kws
 
+    Modules:
+        - TS uses ES6 modules
+        - TS modules compiles into JS ES6 module (use Webpack to work with older browser versions)
 
 ---------------------------------------------------------------------------------------
 
@@ -25,51 +28,50 @@ Notes:
 // const anchor = document.querySelector("a")!;
 // console.log(anchor.href);
 // classes
-var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
+class Invoice {
+    constructor(c, d, a) {
         this.client = c;
         this.details = d;
         this.amount = a;
     }
-    Invoice.prototype.format = function () {
-        return this.client + " owes $" + this.amount + " for " + this.details;
-    };
-    return Invoice;
-}());
+    format() {
+        return `${this.client} owes $${this.amount} for ${this.details}`;
+    }
+}
 // from
-var form = document.querySelector(".new-item-from");
+const form = document.querySelector(".new-item-from");
 // inputs
-var type = document.querySelector("#type");
-var toFrom = document.querySelector("#toFrom");
-var details = document.querySelector("#details");
-var amount = document.querySelector("#amount");
+const type = document.querySelector("#type");
+const toFrom = document.querySelector("#toFrom");
+const details = document.querySelector("#details");
+const amount = document.querySelector("#amount");
 // form event listener
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(type.value, toFrom.value, details.value, amount.value);
 });
-var inv1 = new Invoice("mario", "work on the mario website", 50);
-var inv2 = new Invoice("luigi", "work on the luigi website", 300);
-var invoices = [];
+const inv1 = new Invoice("mario", "work on the mario website", 50);
+const inv2 = new Invoice("luigi", "work on the luigi website", 300);
+let invoices = [];
 invoices.push(inv1);
 invoices.push(inv2);
-invoices.forEach(function (inv) {
+invoices.forEach((inv) => {
     console.log(inv.client, inv.details, inv.format());
 });
-// SHORTHAND CLASS WITH ACCESS MODIFYERS
-var InvoicesEg = /** @class */ (function () {
-    function InvoicesEg(client, details, amount) {
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-        this.client = client;
-        this.details = details;
-        this.amount = amount;
-    }
-    InvoicesEg.prototype.format = function () {
-        return this.client + " owes $" + this.amount + " for " + this.details;
-    };
-    return InvoicesEg;
-}());
-var invEg = new InvoicesEg("diana", "project fee", 100);
-console.log(invEg.format());
+// // SHORTHAND CLASS WITH ACCESS MODIFYERS -------------------------------------------------
+// class InvoicesEg {
+//   constructor(
+//     readonly client: string,
+//     readonly details: string,
+//     private amount: number
+//   ) {
+//     this.client = client;
+//     this.details = details;
+//     this.amount = amount;
+//   }
+//   format() {
+//     return `${this.client} owes $${this.amount} for ${this.details}`;
+//   }
+// }
+// const invEg = new InvoicesEg("diana", "project fee", 100);
+// console.log(invEg.format());
