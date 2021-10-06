@@ -82,12 +82,14 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 // form event listener
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
-  console.log(type.value, toFrom.value, details.value, amount.value);
   let doc: HasFormatter;
 
   if (type.value === "invoice") {
-    // doc = new Invoice()
+    doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
   }
+  console.log(doc);
 });
 
 // const inv1 = new Invoice("mario", "work on the mario website", 50);

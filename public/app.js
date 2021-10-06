@@ -1,3 +1,5 @@
+import { Invoice } from "./modules/Invoice.js";
+import { Payment } from "./modules/Payments.js";
 /*
 ---------------------------------------------------------------------------------------
 
@@ -67,13 +69,15 @@ const amount = document.querySelector("#amount");
 // form event listener
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(type.value, toFrom.value, details.value, amount.value);
     let doc;
     if (type.value === "invoice") {
-        // doc = new Invoice()
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
     }
+    else {
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });
-export {};
 // const inv1 = new Invoice("mario", "work on the mario website", 50);
 // const inv2 = new Invoice("luigi", "work on the luigi website", 300);
 // let invoices: Invoice[] = [];
