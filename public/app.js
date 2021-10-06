@@ -30,6 +30,9 @@ Notes:
         - inforces a certain structure for objects and classes
         - property names need to mach in type and name, mehtod parameters need to match in type only
 
+    Generics:
+        - reusable piece of code that can be used with different types
+
 
 ---------------------------------------------------------------------------------------
 
@@ -154,3 +157,26 @@ form.addEventListener("submit", (e) => {
 // };
 // greetPerson(someone);
 // someone.spend(500);
+// generics in functions
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let test = addUID({ name: "Yoshi" });
+// doesn't know  the other properties than uid
+// placing <T>(obj: T) captures the unknown object properties => but doesn't capture the type of the input iteself, but the properties of it
+// adding <T extends {name: string}> (obj: T) specifies the type (object) and a property name and type (name:string) to make it a specific type again
+console.log(test.name);
+// have to pass in te type of the generic T in the interface
+const docThree = {
+    uid: 200,
+    resourceName: "person",
+    data: "this is a string",
+};
+const docFour = {
+    uid: 4,
+    resourceName: "shopping list",
+    data: ["dogfood", "hay"],
+};
+console.log(docThree);
+console.log(docFour);
