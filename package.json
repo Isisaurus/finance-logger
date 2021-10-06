@@ -1,0 +1,25 @@
+{
+  "name": "finance-logger",
+  "version": "1.0.0",
+  "description": "Finance logger application built using TypeScript.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Isisaurus/finance-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Isisaurus/finance-logger/issues"
+  },
+  "homepage": "https://github.com/Isisaurus/finance-logger#readme",
+  "devDependencies": {
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.57.1",
+    "webpack-cli": "^4.8.0"
+  }
+}
