@@ -1,6 +1,7 @@
 import { Invoice } from "./modules/Invoice.js";
 import { Payment } from "./modules/Payments.js";
 import { HasFormatter } from "./interfaces/HasFormatter.js";
+import { ListTemplate } from "./modules/ListTemplate.js";
 
 /*
 ---------------------------------------------------------------------------------------
@@ -69,7 +70,7 @@ Notes:
 //     return `${this.client} owes $${this.amount} for ${this.details}`;
 //   }
 // }
-
+// -----------------------------------------------------------------------
 // from
 const form = document.querySelector(".new-item-from") as HTMLFormElement;
 
@@ -78,6 +79,10 @@ const type = document.querySelector("#type") as HTMLInputElement;
 const toFrom = document.querySelector("#toFrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
+
+// list template instance
+const ul = document.querySelector(".item-list") as HTMLUListElement;
+const list = new ListTemplate(ul);
 
 // form event listener
 form.addEventListener("submit", (e: Event) => {
@@ -89,8 +94,9 @@ form.addEventListener("submit", (e: Event) => {
   } else {
     doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
   }
-  console.log(doc);
+  list.render(doc, type.value, "end");
 });
+// -----------------------------------------------------------------------
 
 // const inv1 = new Invoice("mario", "work on the mario website", 50);
 // const inv2 = new Invoice("luigi", "work on the luigi website", 300);

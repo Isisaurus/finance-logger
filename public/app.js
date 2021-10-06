@@ -1,5 +1,6 @@
 import { Invoice } from "./modules/Invoice.js";
 import { Payment } from "./modules/Payments.js";
+import { ListTemplate } from "./modules/ListTemplate.js";
 /*
 ---------------------------------------------------------------------------------------
 
@@ -59,6 +60,7 @@ Notes:
 //     return `${this.client} owes $${this.amount} for ${this.details}`;
 //   }
 // }
+// -----------------------------------------------------------------------
 // from
 const form = document.querySelector(".new-item-from");
 // inputs
@@ -66,6 +68,9 @@ const type = document.querySelector("#type");
 const toFrom = document.querySelector("#toFrom");
 const details = document.querySelector("#details");
 const amount = document.querySelector("#amount");
+// list template instance
+const ul = document.querySelector(".item-list");
+const list = new ListTemplate(ul);
 // form event listener
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -76,8 +81,9 @@ form.addEventListener("submit", (e) => {
     else {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, "end");
 });
+// -----------------------------------------------------------------------
 // const inv1 = new Invoice("mario", "work on the mario website", 50);
 // const inv2 = new Invoice("luigi", "work on the luigi website", 300);
 // let invoices: Invoice[] = [];
