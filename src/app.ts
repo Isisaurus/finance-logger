@@ -263,14 +263,16 @@ form.addEventListener("submit", (e: Event) => {
 
 // Tuple type in TS
 // arrays are quite flexible even when typed, the position of the type can change
-let arr = ["ryu", 25, true];
-arr[0] = false;
-arr[1] = "yoshi";
-arr = ["hi", 10, true];
-//  with tuples the position of the types can't be changed
-let tup: [string, number, boolean] = ["hi", 200, true];
+// let arr = ["ryu", 25, true];
+// arr[0] = false;
+// arr[1] = "yoshi";
+// arr = ["hi", 10, true];
+// //  with tuples the position of the types can't be changed
+// let tup: [string, number, boolean] = ["hi", 200, true];
 
-let student: [string, number];
-student = ["chin-li", 57677];
-// nope!
-// student = [57677, "chin-li"];
+// let student: [string, number];
+// student = ["chin-li", 57677];
+// // nope!
+// // student = [57677, "chin-li"];
+
+console.error("ERR: locating error using source maps :)");
