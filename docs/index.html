@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TypeScript Project</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Finance Logger</h1>
+      <!--output list -->
+      <ul class="item-list"></ul>
+
+      <form class="new-item-from">
+        <div class="field">
+          <label for="type">Type:</label>
+          <select name="type" id="type">
+            <option value="invoice">Invoice</option>
+            <option value="payment">Payment</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>To / From:</label>
+          <input type="text" id="toFrom" />
+        </div>
+        <div class="field">
+          <label for="details">Details:</label>
+          <input type="text" id="details" />
+        </div>
+        <div class="field">
+          <label for="amount">Amount (£):</label>
+          <input type="number" id="amount" />
+        </div>
+        <button>Add</button>
+      </form>
+    </div>
+    <footer>
+      <a href="https://diana-vitanyi.netlify.app" target="_blank"
+        >My portfolio</a
+      >
+    </footer>
+
+    <!-- course examples -->
+    <!-- <script src="sandbox.js"></script> -->
+    <!-- project javascript -->
+    <script type="module" src="bundle.js"></script>
+  </body>
+</html>
