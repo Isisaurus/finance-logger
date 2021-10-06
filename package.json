@@ -4,6 +4,7 @@
   "description": "Finance logger application built using TypeScript.",
   "main": "app.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
