@@ -1,7 +1,7 @@
-import { Invoice } from "./modules/Invoice.js";
-import { Payment } from "./modules/Payments.js";
-import { HasFormatter } from "./interfaces/HasFormatter.js";
-import { ListTemplate } from "./modules/ListTemplate.js";
+import { Invoice } from "./modules/Invoice";
+import { Payment } from "./modules/Payments";
+import { HasFormatter } from "./interfaces/HasFormatter";
+import { ListTemplate } from "./modules/ListTemplate";
 
 /*
 ---------------------------------------------------------------------------------------
