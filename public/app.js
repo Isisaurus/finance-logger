@@ -37,6 +37,11 @@ Notes:
 
     ENUMS:
         - ENUMs are a special type in TS that allows to store a set constants (keywords) and associate them witha numeric value eg: use ENUMs to mark the different kinds of objects created using the same interface which takes a generic type as one of it's properties
+    
+    Tuples:
+        - a type in TS, similar to arrays
+        - arrays are still quite flexible even when typed, because the position of each type can be changed: not with tuples
+        - define by defining the types in the array: [string, number, boolean]
 
 
 ---------------------------------------------------------------------------------------
@@ -194,17 +199,33 @@ form.addEventListener("submit", (e) => {
 // console.log(docFour);
 // ENUMS in TS
 //all numbers accesible on ResourceType object, associates with a number
-var ResourceType;
-(function (ResourceType) {
-    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
-    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
-    ResourceType[ResourceType["FILM"] = 2] = "FILM";
-    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
-    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
-})(ResourceType || (ResourceType = {}));
-const docFive = {
-    uid: 4,
-    resourceType: ResourceType.AUTHOR,
-    data: "John Miller",
-};
-console.log(docFive);
+// enum ResourceType {
+//   BOOK,
+//   AUTHOR,
+//   FILM,
+//   DIRECTOR,
+//   PERSON,
+// }
+// interface Resource<T> {
+//   uid: number;
+//   resourceType: ResourceType;
+//   data: T;
+// }
+// const docFive: Resource<string> = {
+//   uid: 4,
+//   resourceType: ResourceType.AUTHOR,
+//   data: "John Miller",
+// };
+// console.log(docFive);
+// Tuple type in TS
+// arrays are quite flexible even when typed, the position of the type can change
+let arr = ["ryu", 25, true];
+arr[0] = false;
+arr[1] = "yoshi";
+arr = ["hi", 10, true];
+//  with tuples the position of the types can't be changed
+let tup = ["hi", 200, true];
+let student;
+student = ["chin-li", 57677];
+// nope!
+// student = [57677, "chin-li"];
