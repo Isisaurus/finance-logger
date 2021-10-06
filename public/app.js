@@ -32,6 +32,8 @@ Notes:
 
     Generics:
         - reusable piece of code that can be used with different types
+        - with functions (eg: adding an id to an object) we use generics to "remember" the previous properties of the input opbject by adding <T extends *type*>(obj: T) => {} to the function
+        - with interfaces we use generics to keep a property type flexible, but when using this interface we neet to define the type eg: interface Resource<T> = {... data: T} AND doc:Resource<string[]>{...data: ["a", "b"]}
 
 
 ---------------------------------------------------------------------------------------
@@ -180,3 +182,4 @@ const docFour = {
 };
 console.log(docThree);
 console.log(docFour);
+// ENUMS in TS
