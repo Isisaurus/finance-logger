@@ -2,7 +2,7 @@ Finance logger application built using TypeScript and compiled using Webpack.
 
 This project is a simple application created to get started with TypeScript, learn the basics and set up a development environment with Webpack.
 
--
+---
 
 To run this roject locally:
 
@@ -14,7 +14,7 @@ To run this roject locally:
 
 4. Run `npm run build` in the terminal to bundle files into "public/bundle.js".
 
--
+---
 
 I have learned about the following concepts in TypeScript during this project:
 
@@ -35,7 +35,7 @@ I have learned about the following concepts in TypeScript during this project:
 
 The files contain my course notes and example code for each topic (sandbox.ts).
 
--
+---
 
 For this project I have set up a development environment to bundle TypeScript modules into a single, bundle.j file with Webpack. To achieve this I have done the following:
 
