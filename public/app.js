@@ -35,6 +35,9 @@ Notes:
         - with functions (eg: adding an id to an object) we use generics to "remember" the previous properties of the input opbject by adding <T extends *type*>(obj: T) => {} to the function
         - with interfaces we use generics to keep a property type flexible, but when using this interface we neet to define the type eg: interface Resource<T> = {... data: T} AND doc:Resource<string[]>{...data: ["a", "b"]}
 
+    ENUMS:
+        - ENUMs are a special type in TS that allows to store a set constants (keywords) and associate them witha numeric value eg: use ENUMs to mark the different kinds of objects created using the same interface which takes a generic type as one of it's properties
+
 
 ---------------------------------------------------------------------------------------
 
@@ -159,27 +162,49 @@ form.addEventListener("submit", (e) => {
 // };
 // greetPerson(someone);
 // someone.spend(500);
-// generics in functions
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-let test = addUID({ name: "Yoshi" });
-// doesn't know  the other properties than uid
-// placing <T>(obj: T) captures the unknown object properties => but doesn't capture the type of the input iteself, but the properties of it
-// adding <T extends {name: string}> (obj: T) specifies the type (object) and a property name and type (name:string) to make it a specific type again
-console.log(test.name);
-// have to pass in te type of the generic T in the interface
-const docThree = {
-    uid: 200,
-    resourceName: "person",
-    data: "this is a string",
-};
-const docFour = {
-    uid: 4,
-    resourceName: "shopping list",
-    data: ["dogfood", "hay"],
-};
-console.log(docThree);
-console.log(docFour);
+// // generics in functions
+// const addUID = <T extends object>(obj: T) => {
+//   let uid = Math.floor(Math.random() * 100);
+//   return { ...obj, uid };
+// };
+// let test = addUID({ name: "Yoshi" });
+// // doesn't know  the other properties than uid
+// // placing <T>(obj: T) captures the unknown object properties => but doesn't capture the type of the input iteself, but the properties of it
+// // adding <T extends {name: string}> (obj: T) specifies the type (object) and a property name and type (name:string) to make it a specific type again
+// console.log(test.name);
+// //  generics in interfaces
+// interface Resource<T> {
+//   uid: number;
+//   resourceName: string;
+//   // data is flexible => generic
+//   data: T;
+// }
+// // have to pass in te type of the generic T in the interface
+// const docThree: Resource<string> = {
+//   uid: 200,
+//   resourceName: "person",
+//   data: "this is a string",
+// };
+// const docFour: Resource<string[]> = {
+//   uid: 4,
+//   resourceName: "shopping list",
+//   data: ["dogfood", "hay"],
+// };
+// console.log(docThree);
+// console.log(docFour);
 // ENUMS in TS
+//all numbers accesible on ResourceType object, associates with a number
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const docFive = {
+    uid: 4,
+    resourceType: ResourceType.AUTHOR,
+    data: "John Miller",
+};
+console.log(docFive);
