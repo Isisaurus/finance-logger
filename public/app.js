@@ -87,3 +87,18 @@ const greetPerson = (person) => {
     console.log(`Hello, ${person.name}`);
 };
 greetPerson(me);
+someone = {
+    name: "someone",
+    age: 20,
+    birthYear: 2001,
+    location: "Den Haag",
+    speak: (text) => {
+        console.log(`${text}`);
+    },
+    spend: (amount) => {
+        console.log(`Spent ${amount}`);
+        return amount;
+    },
+};
+greetPerson(someone);
+someone.spend(500);

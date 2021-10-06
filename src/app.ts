@@ -138,3 +138,20 @@ const greetPerson = (person: isPerson) => {
 };
 
 greetPerson(me);
+
+someone = {
+  name: "someone",
+  age: 20,
+  birthYear: 2001,
+  location: "Den Haag",
+  speak: (text: string): void => {
+    console.log(`${text}`);
+  },
+  spend: (amount: number): number => {
+    console.log(`Spent ${amount}`);
+    return amount;
+  },
+};
+greetPerson(someone);
+
+someone.spend(500);
