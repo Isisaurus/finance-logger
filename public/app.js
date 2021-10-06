@@ -1,4 +1,3 @@
-import { Invoice } from "./modules/Invoice.js";
 /*
 ---------------------------------------------------------------------------------------
 
@@ -32,6 +31,15 @@ Notes:
 ---------------------------------------------------------------------------------------
 
 */
+// applying interfaces
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
+// docOne = new Invoice("yoshi", "web work", 250);
+// docTwo = new Payment("mario", "plumbing work", 200);
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
+// console.log(docs);
 // const anchor = document.querySelector("a")!;
 // console.log(anchor.href);
 // classes
@@ -60,45 +68,79 @@ const amount = document.querySelector("#amount");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(type.value, toFrom.value, details.value, amount.value);
+    let doc;
+    if (type.value === "invoice") {
+        // doc = new Invoice()
+    }
 });
-const inv1 = new Invoice("mario", "work on the mario website", 50);
-const inv2 = new Invoice("luigi", "work on the luigi website", 300);
-let invoices = [];
-invoices.push(inv1);
-invoices.push(inv2);
-const me = {
-    name: "Diana",
-    age: 24,
-    birthYear: 1997,
-    location: "Almere",
-    speak: (text) => {
-        console.log(`${text}`);
-    },
-    spend: (amount) => {
-        console.log(`Spent ${amount}`);
-        return amount;
-    },
-};
-let someone;
-console.log(me);
-me.speak(`hello there`);
-me.spend(500);
-const greetPerson = (person) => {
-    console.log(`Hello, ${person.name}`);
-};
-greetPerson(me);
-someone = {
-    name: "someone",
-    age: 20,
-    birthYear: 2001,
-    location: "Den Haag",
-    speak: (text) => {
-        console.log(`${text}`);
-    },
-    spend: (amount) => {
-        console.log(`Spent ${amount}`);
-        return amount;
-    },
-};
-greetPerson(someone);
-someone.spend(500);
+export {};
+// const inv1 = new Invoice("mario", "work on the mario website", 50);
+// const inv2 = new Invoice("luigi", "work on the luigi website", 300);
+// let invoices: Invoice[] = [];
+// invoices.push(inv1);
+// invoices.push(inv2);
+// invoices.forEach((inv) => {
+//   console.log(inv.client, inv.details, inv.format());
+// });
+// // SHORTHAND CLASS WITH ACCESS MODIFYERS -------------------------------------------------
+// class InvoicesEg {
+//   constructor(
+//     readonly client: string,
+//     readonly details: string,
+//     private amount: number
+//   ) {
+//     this.client = client;
+//     this.details = details;
+//     this.amount = amount;
+//   }
+//   format() {
+//     return `${this.client} owes $${this.amount} for ${this.details}`;
+//   }
+// }
+// const invEg = new InvoicesEg("diana", "project fee", 100);
+// console.log(invEg.format());
+// interfaces: object interfaces
+// interface isPerson {
+//   name: string;
+//   age: number;
+//   birthYear: number;
+//   location: string;
+//   speak: (a: string) => void;
+//   spend: (a: number) => number;
+// }
+// const me: isPerson = {
+//   name: "Diana",
+//   age: 24,
+//   birthYear: 1997,
+//   location: "Almere",
+//   speak: (text: string): void => {
+//     console.log(`${text}`);
+//   },
+//   spend: (amount: number): number => {
+//     console.log(`Spent ${amount}`);
+//     return amount;
+//   },
+// };
+// let someone: isPerson;
+// console.log(me);
+// me.speak(`hello there`);
+// me.spend(500);
+// const greetPerson = (person: isPerson) => {
+//   console.log(`Hello, ${person.name}`);
+// };
+// greetPerson(me);
+// someone = {
+//   name: "someone",
+//   age: 20,
+//   birthYear: 2001,
+//   location: "Den Haag",
+//   speak: (text: string): void => {
+//     console.log(`${text}`);
+//   },
+//   spend: (amount: number): number => {
+//     console.log(`Spent ${amount}`);
+//     return amount;
+//   },
+// };
+// greetPerson(someone);
+// someone.spend(500);

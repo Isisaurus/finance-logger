@@ -1,4 +1,6 @@
 import { Invoice } from "./modules/Invoice.js";
+import { Payment } from "./modules/Payments.js";
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 
 /*
 ---------------------------------------------------------------------------------------
@@ -33,6 +35,19 @@ Notes:
 ---------------------------------------------------------------------------------------
 
 */
+// applying interfaces
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
+
+// docOne = new Invoice("yoshi", "web work", 250);
+// docTwo = new Payment("mario", "plumbing work", 200);
+
+// let docs: HasFormatter[] = [];
+
+// docs.push(docOne);
+// docs.push(docTwo);
+
+// console.log(docs);
 
 // const anchor = document.querySelector("a")!;
 // console.log(anchor.href);
@@ -68,15 +83,20 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
   console.log(type.value, toFrom.value, details.value, amount.value);
+  let doc: HasFormatter;
+
+  if (type.value === "invoice") {
+    // doc = new Invoice()
+  }
 });
 
-const inv1 = new Invoice("mario", "work on the mario website", 50);
-const inv2 = new Invoice("luigi", "work on the luigi website", 300);
+// const inv1 = new Invoice("mario", "work on the mario website", 50);
+// const inv2 = new Invoice("luigi", "work on the luigi website", 300);
 
-let invoices: Invoice[] = [];
+// let invoices: Invoice[] = [];
 
-invoices.push(inv1);
-invoices.push(inv2);
+// invoices.push(inv1);
+// invoices.push(inv2);
 
 // invoices.forEach((inv) => {
 //   console.log(inv.client, inv.details, inv.format());
@@ -102,56 +122,56 @@ invoices.push(inv2);
 // const invEg = new InvoicesEg("diana", "project fee", 100);
 // console.log(invEg.format());
 
-// interfaces
-interface isPerson {
-  name: string;
-  age: number;
-  birthYear: number;
-  location: string;
-  speak: (a: string) => void;
-  spend: (a: number) => number;
-}
+// interfaces: object interfaces
+// interface isPerson {
+//   name: string;
+//   age: number;
+//   birthYear: number;
+//   location: string;
+//   speak: (a: string) => void;
+//   spend: (a: number) => number;
+// }
 
-const me: isPerson = {
-  name: "Diana",
-  age: 24,
-  birthYear: 1997,
-  location: "Almere",
-  speak: (text: string): void => {
-    console.log(`${text}`);
-  },
-  spend: (amount: number): number => {
-    console.log(`Spent ${amount}`);
-    return amount;
-  },
-};
+// const me: isPerson = {
+//   name: "Diana",
+//   age: 24,
+//   birthYear: 1997,
+//   location: "Almere",
+//   speak: (text: string): void => {
+//     console.log(`${text}`);
+//   },
+//   spend: (amount: number): number => {
+//     console.log(`Spent ${amount}`);
+//     return amount;
+//   },
+// };
 
-let someone: isPerson;
+// let someone: isPerson;
 
-console.log(me);
+// console.log(me);
 
-me.speak(`hello there`);
-me.spend(500);
+// me.speak(`hello there`);
+// me.spend(500);
 
-const greetPerson = (person: isPerson) => {
-  console.log(`Hello, ${person.name}`);
-};
+// const greetPerson = (person: isPerson) => {
+//   console.log(`Hello, ${person.name}`);
+// };
 
-greetPerson(me);
+// greetPerson(me);
 
-someone = {
-  name: "someone",
-  age: 20,
-  birthYear: 2001,
-  location: "Den Haag",
-  speak: (text: string): void => {
-    console.log(`${text}`);
-  },
-  spend: (amount: number): number => {
-    console.log(`Spent ${amount}`);
-    return amount;
-  },
-};
-greetPerson(someone);
+// someone = {
+//   name: "someone",
+//   age: 20,
+//   birthYear: 2001,
+//   location: "Den Haag",
+//   speak: (text: string): void => {
+//     console.log(`${text}`);
+//   },
+//   spend: (amount: number): number => {
+//     console.log(`Spent ${amount}`);
+//     return amount;
+//   },
+// };
+// greetPerson(someone);
 
-someone.spend(500);
+// someone.spend(500);
